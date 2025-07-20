@@ -1,18 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
 import { Circle, Pencil, Trash2 } from 'lucide-react';
+import { useTasks } from '../http/use-tasks';
 
 export function TaskList() {
-  const { data, isLoading } = useQuery({
-    queryKey: ['get-tasks'],
-    queryFn: async () => {
-      const response = await fetch(
-        'http://localhost:3333/tasks?completed=false'
-      );
-      const result = await response.json();
-
-      return result;
-    },
-  });
+  const { data, isLoading } = useTasks();
 
   return (
     <div>
