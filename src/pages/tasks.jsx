@@ -1,25 +1,10 @@
-import { useQuery } from '@tanstack/react-query';
+import { TaskList } from "../components/task-list";
 
 export function Tasks() {
-  const { data, isLoading } = useQuery({
-    queryKey: ['get-tasks'],
-    queryFn: async () => {
-      const response = await fetch(
-        'http://localhost:3333/tasks?completed=false'
-      );
-      const result = await response.json();
-
-      return result;
-    },
-  });
-
   return (
-    <div>
-      {isLoading && <p>Carregando...</p>}
-      <div className='flex flex-col gap-1'>
-        {data?.map((task) => {
-          return <p key={task.id}>{task.name}</p>;
-        })}
+    <div className="min-h-screen p-4">
+      <div className="mx-auto max-w-4xl">
+        <TaskList />
       </div>
     </div>
   );
