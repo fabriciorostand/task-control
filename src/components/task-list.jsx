@@ -17,7 +17,7 @@ export function TaskList() {
       {data?.map((task) => {
         return (
           <div
-            className="rounde-lg m-3 flex items-center justify-between rounded-lg border p-4 hover:bg-accent"
+            className="rounde-lg my-3 flex items-center justify-between rounded-lg border p-4 hover:bg-accent"
             key={task.id}
           >
             <button
